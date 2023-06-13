@@ -33,7 +33,6 @@ namespace BranchDemo.Module.BusinessObjects
         public virtual string Description { get; set; }
         public virtual Company Company { get; set; }
         public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
-        public virtual IList<Seller> Sellers { get; set; } = new ObservableCollection<Seller>();
         public virtual IList<Invoice> Invoices { get; set; } = new ObservableCollection<Invoice>();
 
 
