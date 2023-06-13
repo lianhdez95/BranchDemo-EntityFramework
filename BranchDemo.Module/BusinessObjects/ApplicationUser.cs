@@ -3,6 +3,7 @@ using System.ComponentModel;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
+using DevExpress.Persistent.Validation;
 
 namespace BranchDemo.Module.BusinessObjects;
 
@@ -16,6 +17,7 @@ public class ApplicationUser : PermissionPolicyUser, ISecurityUserWithLoginInfo 
     [DevExpress.ExpressApp.DC.Aggregated]
     public virtual IList<ApplicationUserLoginInfo> UserLogins { get; set; }
 
+    [RuleRequiredField]
     public virtual Branch Branch { get; set; }
 
     IEnumerable<ISecurityUserLoginInfo> IOAuthSecurityUser.UserLogins => UserLogins.OfType<ISecurityUserLoginInfo>();
