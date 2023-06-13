@@ -15,6 +15,7 @@
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DevExpress.AspNetCore.Reporting" Version="22.2.5" />
     <PackageReference Include="DevExpress.ExpressApp" Version="22.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.2.5" />
     <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="22.2.5" />
