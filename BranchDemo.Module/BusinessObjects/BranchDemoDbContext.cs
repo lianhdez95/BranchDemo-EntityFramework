@@ -34,8 +34,15 @@ public class BranchDemoDesignTimeDbContextFactory : IDesignTimeDbContextFactory<
 public class BranchDemoEFCoreDbContext : DbContext {
 	public BranchDemoEFCoreDbContext(DbContextOptions<BranchDemoEFCoreDbContext> options) : base(options) {
 	}
-	//public DbSet<ModuleInfo> ModulesInfo { get; set; }
-	public DbSet<ModelDifference> ModelDifferences { get; set; }
+	public DbSet<Company> Companies { get; set; }
+    public DbSet<Branch> Branches { get; set; }
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Invoice> Invoices { get; set; }
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Seller> Sellers { get; set; }
+    public DbSet<Tax> Taxes { get; set; }
+    public DbSet<ProductType> ProductTypes { get; set; }
+    public DbSet<ModelDifference> ModelDifferences { get; set; }
 	public DbSet<ModelDifferenceAspect> ModelDifferenceAspects { get; set; }
 	public DbSet<PermissionPolicyRole> Roles { get; set; }
 	public DbSet<BranchDemo.Module.BusinessObjects.ApplicationUser> Users { get; set; }

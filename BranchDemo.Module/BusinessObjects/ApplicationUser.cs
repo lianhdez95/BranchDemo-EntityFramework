@@ -16,6 +16,8 @@ public class ApplicationUser : PermissionPolicyUser, ISecurityUserWithLoginInfo 
     [DevExpress.ExpressApp.DC.Aggregated]
     public virtual IList<ApplicationUserLoginInfo> UserLogins { get; set; }
 
+    public virtual Branch Branch { get; set; }
+
     IEnumerable<ISecurityUserLoginInfo> IOAuthSecurityUser.UserLogins => UserLogins.OfType<ISecurityUserLoginInfo>();
 
     ISecurityUserLoginInfo ISecurityUserWithLoginInfo.CreateUserLoginInfo(string loginProviderName, string providerUserKey) {
