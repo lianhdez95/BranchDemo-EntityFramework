@@ -34,5 +34,8 @@ namespace BranchDemo.Module.BusinessObjects
         public virtual string Description { get; set; }
 
         public virtual decimal TaxPrice { get; set; }
+        
+        [Browsable(false)]
+        public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
     }
 }

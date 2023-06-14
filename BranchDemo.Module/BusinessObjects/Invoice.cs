@@ -30,12 +30,18 @@ namespace BranchDemo.Module.BusinessObjects
             // In the constructor, initialize collection properties, e.g.: 
             // this.AssociatedEntities = new ObservableCollection<AssociatedEntityObject>();
         }
+
+        public override void OnCreated()
+        {
+            base.OnCreated();
+            ApplicationUser currentUser = ObjectSpace.FindObject<ApplicationUser>(CriteriaOperator.Parse("ID=CurrentUserId()"));
+        }
         public virtual DateTime DateTime { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Product Product { get; set; }
         public virtual int Amount { get; set; }
         public virtual decimal UnitPrice { get; set;}
-        public virtual IList<Tax> Taxes { get; set; }
+        public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
         public virtual decimal TotalPrice { get; set;}
         public virtual Status Status { get; set; }
         public virtual Branch SoldBy { get; set; }

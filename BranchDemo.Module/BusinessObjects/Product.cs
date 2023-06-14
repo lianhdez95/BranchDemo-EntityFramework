@@ -25,8 +25,19 @@ namespace BranchDemo.Module.BusinessObjects
     // (see https://learn.microsoft.com/en-us/ef/core/change-tracking/change-detection#change-tracking-proxies for details).
     public class Product : BaseObject
     {
+
+
         public Product()
         {
+            
+        }
+
+        public override void OnCreated()
+        {
+            base.OnCreated();
+            ApplicationUser currentUser = ObjectSpace.FindObject<ApplicationUser>(CriteriaOperator.Parse("ID=CurrentUserId()"));
+            CreatedBy = currentUser.Branch;
+
         }
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }

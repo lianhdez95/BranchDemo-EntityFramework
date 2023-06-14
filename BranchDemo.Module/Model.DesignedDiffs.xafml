@@ -1,22 +1,30 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="BranchDemo">
   <BOModel>
+    <Class Name="BranchDemo.Module.BusinessObjects.Product">
+      <AppearanceRules>
+        <AppearanceRule Id="NotEditableBranch" TargetItems="CreatedBy" Enabled="False" Context="DetailView" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
     <Class Name="DevExpress.Persistent.BaseImpl.EF.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="22.2.5.0" IsNewNode="True" />
+  </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
     <DetailView Id="ReportDataV2_DetailView">
       <Layout>
-        <LayoutGroup Id="Main" >
-          <LayoutGroup Id="SimpleEditors" >
-            <LayoutGroup Id="ReportDataV2" >
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ReportDataV2">
               <LayoutItem Id="DisplayName" ViewItem="DisplayName" Index="0" IsNewNode="True" Removed="True" />
               <LayoutItem Id="ParametersObjectType" ViewItem="ParametersObjectType" Index="1" IsNewNode="True" Removed="True" />
               <LayoutItem Id="DataTypeCaption" ViewItem="DataTypeCaption" Index="2" IsNewNode="True" Removed="True" />
-              <LayoutItem Id="IsInplaceReport" Index="3" />
+              <LayoutItem Id="IsInplaceReport" Index="3" ViewItem="IsInplaceReport" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
