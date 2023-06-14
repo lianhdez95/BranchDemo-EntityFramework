@@ -69,7 +69,9 @@ namespace BranchDemo.Module.BusinessObjects
         public static string FullNameFormat = "{FirstName} {MiddleName} {LastName}";
 
         public virtual IList<PhoneNumber> PhoneNumbers { get; set; } = new ObservableCollection<PhoneNumber>();
-        public virtual CustomerType CustomerType {  get; set; } 
+        public virtual CustomerType CustomerType {  get; set; }
+
+        public virtual FileData AttachmentResume { get; set; }
     }
 
     public enum CustomerType
