@@ -5,6 +5,7 @@ using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.ExpressApp.Design;
 using DevExpress.ExpressApp.EFCore.DesignTime;
+using DevExpress.ExpressApp;
 
 namespace BranchDemo.Module.BusinessObjects;
 

@@ -5,13 +5,17 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.Validation;
+using DevExpress.XtraReports.Web.ClientControls;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BranchDemo.Module.BusinessObjects
 {
@@ -31,30 +35,37 @@ namespace BranchDemo.Module.BusinessObjects
             // this.AssociatedEntities = new ObservableCollection<AssociatedEntityObject>();
         }
 
+        
+
         public override void OnCreated()
         {
             base.OnCreated();
             ApplicationUser currentUser = ObjectSpace.FindObject<ApplicationUser>(CriteriaOperator.Parse("ID=CurrentUserId()"));
             SoldBy = currentUser.Branch;
+            this.DateTime = DateTime.Now;
+            this.Status = Status.Started;
         }
-        public virtual DateTime DateTime { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual Product Product { get; set; }
-        public virtual int Amount { get; set; }
-        public virtual decimal UnitPrice { get; set;}
-        public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
-        public virtual decimal TotalPrice { get; set;}
-        public virtual Status Status { get; set; }
-        public virtual Branch SoldBy { get; set; }
 
         public override void OnSaving()
         {
             base.OnSaving();
-            if(Product.CreatedBy != SoldBy && !Product.IsGlobal)
+            
+            if (this.SoldBy != this.Product.CreatedBy && !this.Product.IsGlobal)
             {
-                throw new UserFriendlyException("Invoice Error: Product must be global if not created by the current branch");
+                throw NullReferenceExcept
             }
+
         }
+
+        public virtual int Amount { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual DateTime DateTime { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
+        public virtual Branch SoldBy { get; set; }
+        public virtual Status Status { get; set; }
+        public virtual decimal TotalPrice { get; set; }
+        public virtual decimal UnitPrice { get; set; }
 
     }
 
@@ -62,4 +73,6 @@ namespace BranchDemo.Module.BusinessObjects
     {
         Started, InProgress, Completed
     }
+
+
 }

@@ -3,7 +3,9 @@
   <BOModel>
     <Class Name="BranchDemo.Module.BusinessObjects.Invoice">
       <AppearanceRules>
+        <AppearanceRule Id="DisableDateTime" Enabled="False" TargetItems="DateTime" IsNewNode="True" />
         <AppearanceRule Id="DisableSoldBy" Enabled="False" TargetItems="SoldBy" IsNewNode="True" />
+        <AppearanceRule Id="DisableStatus" Enabled="False" TargetItems="Status" IsNewNode="True" />
       </AppearanceRules>
     </Class>
     <Class Name="BranchDemo.Module.BusinessObjects.Product">
