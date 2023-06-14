@@ -30,9 +30,27 @@ namespace BranchDemo.Module.BusinessObjects
         {
         }
 
+        public override void OnSaving()
+        {
+            base.OnSaving();
+            if(this.Address==null&&this.CustomerType == CustomerType.B)
+            {
+                throw new UserFriendlyException("Address field is mandatory for B Customers");
+            }
+            if (this.PhoneNumbers == null && this.CustomerType == CustomerType.B)
+            {
+                throw new UserFriendlyException("Phone Numbers field is mandatory for B Customers");
+            }
+        }
+
+        [RuleRequiredField]
         public virtual string FirstName { get; set; }
         public virtual string MiddleName { get; set; }
+        
+        [RuleRequiredField]
         public virtual string LastName { get; set;}
+
+        [RuleRequiredField]
         public virtual string Dni { get; set; }
         public virtual Address Address { get; set; }
         
