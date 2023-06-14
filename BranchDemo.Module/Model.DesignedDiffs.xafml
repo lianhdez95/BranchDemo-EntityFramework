@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="BranchDemo">
   <BOModel>
+    <Class Name="BranchDemo.Module.BusinessObjects.Invoice">
+      <AppearanceRules>
+        <AppearanceRule Id="DisableSoldBy" Enabled="False" TargetItems="SoldBy" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
     <Class Name="BranchDemo.Module.BusinessObjects.Product">
       <AppearanceRules>
         <AppearanceRule Id="NotEditableBranch" TargetItems="CreatedBy" Enabled="False" Context="DetailView" IsNewNode="True" />

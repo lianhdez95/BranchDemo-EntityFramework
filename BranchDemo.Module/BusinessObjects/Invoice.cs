@@ -35,6 +35,7 @@ namespace BranchDemo.Module.BusinessObjects
         {
             base.OnCreated();
             ApplicationUser currentUser = ObjectSpace.FindObject<ApplicationUser>(CriteriaOperator.Parse("ID=CurrentUserId()"));
+            SoldBy = currentUser.Branch;
         }
         public virtual DateTime DateTime { get; set; }
         public virtual Customer Customer { get; set; }
