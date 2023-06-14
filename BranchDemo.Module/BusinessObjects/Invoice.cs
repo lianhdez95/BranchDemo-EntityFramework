@@ -47,6 +47,15 @@ namespace BranchDemo.Module.BusinessObjects
         public virtual Status Status { get; set; }
         public virtual Branch SoldBy { get; set; }
 
+        public override void OnSaving()
+        {
+            base.OnSaving();
+            if(Product.CreatedBy != SoldBy && !Product.IsGlobal)
+            {
+                throw new UserFriendlyException("Invoice Error: Product must be global if not created by the current branch");
+            }
+        }
+
     }
 
     public enum Status
