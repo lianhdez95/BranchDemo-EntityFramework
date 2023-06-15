@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -61,12 +62,53 @@ namespace BranchDemo.Module.BusinessObjects
         public virtual Customer Customer { get; set; }
         public virtual DateTime DateTime { get; set; }
         public virtual Product Product { get; set; }
-        public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
         public virtual Branch SoldBy { get; set; }
         public virtual Status Status { get; set; }
-        public virtual decimal TotalPrice { get; set; }
-        public virtual decimal UnitPrice { get; set; }
-
+        public virtual IList<Tax> Taxes { get; set; } = new ObservableCollection<Tax>();
+        [NotMapped]
+        public decimal TotalPrice 
+        {
+            get
+            {
+                decimal total = 0;
+                if (Product != null && Amount > 0)
+                {
+                    total = UnitPrice * Amount + TotalTax;
+                }
+                return total;
+            }
+        }
+        [NotMapped]
+        public decimal UnitPrice 
+        {
+            get
+            {
+                decimal price = 0;
+                if (Product != null)
+                {
+                    price = Product.UnitPrice;
+                }
+                return price;
+            }
+           
+        }
+        [NotMapped]
+        public decimal TotalTax
+        {
+            get 
+            {
+                decimal total = 0;
+                if (Taxes.Count > 0)
+                {
+                    foreach(Tax tax in Taxes)
+                    {
+                        total += tax.TaxPrice;
+                    }
+                }
+                return total;
+            }
+            
+        }
     }
 
     public enum Status
