@@ -31,7 +31,7 @@
           <Item Id="Customer_ListView">
             <Items>
               <Item Id="Customer A" Caption="Customer A" ViewId="CustomerA_ListView" IsNewNode="True" />
-              <Item Id="Customer B" ViewId="CustomerB_ListView" IsNewNode="True" />
+              <Item Id="Customer B" ViewId="CustomerB_ListView" Caption="Customer B" IsNewNode="True" />
             </Items>
           </Item>
         </Items>
