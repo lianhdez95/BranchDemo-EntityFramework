@@ -8,12 +8,12 @@
     </Class>
     <Class Name="BranchDemo.Module.BusinessObjects.Invoice">
       <AppearanceRules>
-        <AppearanceRule Id="CompletedInvoice" TargetItems="*" FontStyle="Strikeout" Enabled="False" IsNewNode="True" />
+        <AppearanceRule Id="CompletedInvoice" TargetItems="*" FontStyle="Strikeout" Enabled="False" FontColor="0, 128, 0" IsNewNode="True" />
         <AppearanceRule Id="DisableDateTime" Enabled="False" TargetItems="DateTime" IsNewNode="True" />
         <AppearanceRule Id="DisableSoldBy" Enabled="False" TargetItems="SoldBy" IsNewNode="True" />
         <AppearanceRule Id="DisableStatus" Enabled="False" TargetItems="Status" IsNewNode="True" />
-        <AppearanceRule Id="InProgressInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,InProgress#" BackColor="192, 64, 0" FontStyle="Italic" TargetItems="*" IsNewNode="True" />
-        <AppearanceRule Id="StartedInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,Started#" BackColor="Navy" TargetItems="*" IsNewNode="True" />
+        <AppearanceRule Id="InProgressInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,InProgress#" BackColor="Transparent" FontStyle="Italic" TargetItems="*" FontColor="192, 64, 0" IsNewNode="True" />
+        <AppearanceRule Id="StartedInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,Started#" BackColor="Transparent" TargetItems="*" FontColor="0, 0, 128" IsNewNode="True" />
       </AppearanceRules>
     </Class>
     <Class Name="BranchDemo.Module.BusinessObjects.Product">
