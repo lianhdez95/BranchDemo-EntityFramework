@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="BranchDemo">
   <BOModel>
+    <Class Name="BranchDemo.Module.BusinessObjects.Customer">
+      <AppearanceRules>
+        <AppearanceRule Id="CustomerAHiddenPhone" Visibility="Hide" Context="ListView" TargetItems="PhoneNumber" Criteria="[CustomerType] = ##Enum#BranchDemo.Module.BusinessObjects.CustomerType,A#" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
     <Class Name="BranchDemo.Module.BusinessObjects.Invoice">
       <AppearanceRules>
         <AppearanceRule Id="CompletedInvoice" TargetItems="*" FontStyle="Strikeout" Enabled="False" IsNewNode="True" />
@@ -8,7 +13,7 @@
         <AppearanceRule Id="DisableSoldBy" Enabled="False" TargetItems="SoldBy" IsNewNode="True" />
         <AppearanceRule Id="DisableStatus" Enabled="False" TargetItems="Status" IsNewNode="True" />
         <AppearanceRule Id="InProgressInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,InProgress#" BackColor="192, 64, 0" FontStyle="Italic" TargetItems="*" IsNewNode="True" />
-        <AppearanceRule Id="StartedInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,Started#" BackColor="0, 0, 128" TargetItems="*" IsNewNode="True" />
+        <AppearanceRule Id="StartedInvoice" Criteria="[Status] = ##Enum#BranchDemo.Module.BusinessObjects.Status,Started#" BackColor="Navy" TargetItems="*" IsNewNode="True" />
       </AppearanceRules>
     </Class>
     <Class Name="BranchDemo.Module.BusinessObjects.Product">
