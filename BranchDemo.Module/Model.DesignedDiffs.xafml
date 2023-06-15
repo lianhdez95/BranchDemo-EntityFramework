@@ -24,6 +24,20 @@
     </Class>
     <Class Name="DevExpress.Persistent.BaseImpl.EF.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Customer_ListView">
+            <Items>
+              <Item Id="Customer A" Caption="Customer A" ViewId="CustomerA_ListView" IsNewNode="True" />
+              <Item Id="Customer B" ViewId="CustomerB_ListView" IsNewNode="True" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
@@ -32,6 +46,34 @@
   </SchemaModules>
   <Views>
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="CustomerA_ListView" ClassName="BranchDemo.Module.BusinessObjects.Customer" Caption="CustomerA_ListView" Criteria="" Filter="[CustomerType] = ##Enum#BranchDemo.Module.BusinessObjects.CustomerType,A#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="ID" PropertyName="ID" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FullName" PropertyName="FullName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="MiddleName" PropertyName="MiddleName" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="LastName" PropertyName="LastName" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Dni" PropertyName="Dni" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Address" PropertyName="Address" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="DisplayName" PropertyName="DisplayName" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="CustomerType" PropertyName="CustomerType" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="AttachmentResume" PropertyName="AttachmentResume" Index="8" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="CustomerB_ListView" ClassName="BranchDemo.Module.BusinessObjects.Customer" Caption="CustomerB_ListView" Filter="[CustomerType] = ##Enum#BranchDemo.Module.BusinessObjects.CustomerType,B#" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="ID" PropertyName="ID" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="FullName" PropertyName="FullName" SortIndex="0" SortOrder="Ascending" Index="0" IsNewNode="True" />
+        <ColumnInfo Id="FirstName" PropertyName="FirstName" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="MiddleName" PropertyName="MiddleName" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="LastName" PropertyName="LastName" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Dni" PropertyName="Dni" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="Address" PropertyName="Address" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="DisplayName" PropertyName="DisplayName" Index="6" IsNewNode="True" />
+        <ColumnInfo Id="CustomerType" PropertyName="CustomerType" Index="7" IsNewNode="True" />
+        <ColumnInfo Id="AttachmentResume" PropertyName="AttachmentResume" Index="8" IsNewNode="True" />
+      </Columns>
+    </ListView>
     <DetailView Id="ReportDataV2_DetailView">
       <Layout>
         <LayoutGroup Id="Main">
