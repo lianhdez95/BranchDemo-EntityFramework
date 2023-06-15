@@ -52,7 +52,7 @@ namespace BranchDemo.Module.BusinessObjects
             
             if (this.SoldBy != this.Product.CreatedBy && !this.Product.IsGlobal)
             {
-                throw NullReferenceExcept
+                throw new UserFriendlyException("Invoice Error: Product Must be global");
             }
 
         }

@@ -29,8 +29,12 @@ namespace BranchDemo.Module.BusinessObjects
         {
            
         }
+
+        [RuleRequiredField]
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
+
+        [RuleRequiredField]
         public virtual Company Company { get; set; }
         public virtual IList<Product> Products { get; set; } = new ObservableCollection<Product>();
         public virtual IList<Invoice> Invoices { get; set; } = new ObservableCollection<Invoice>();

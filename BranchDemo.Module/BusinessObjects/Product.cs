@@ -39,8 +39,10 @@ namespace BranchDemo.Module.BusinessObjects
             CreatedBy = currentUser.Branch;
 
         }
+        [RuleRequiredField]
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
+        [RuleRequiredField]
         public virtual ProductType ProductType { get; set; }
         public virtual decimal UnitPrice { get; set; }
         public virtual Branch CreatedBy { get; set; }

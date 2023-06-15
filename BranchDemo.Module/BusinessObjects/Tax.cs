@@ -28,7 +28,7 @@ namespace BranchDemo.Module.BusinessObjects
         public Tax()
         {
         }
-
+        [RuleRequiredField]
         public virtual string Name { get; set; }
 
         public virtual string Description { get; set; }

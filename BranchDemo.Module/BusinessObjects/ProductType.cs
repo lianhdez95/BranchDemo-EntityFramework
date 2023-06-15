@@ -28,6 +28,7 @@ namespace BranchDemo.Module.BusinessObjects
         public ProductType()
         {
         }
+        [RuleRequiredField]
         public virtual string Subject { get; set; }
         public virtual string Description { get; set; }
 
