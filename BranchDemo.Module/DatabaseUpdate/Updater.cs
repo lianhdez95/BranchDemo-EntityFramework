@@ -18,12 +18,13 @@ public class Updater : ModuleUpdater {
     }
     public override void UpdateDatabaseAfterUpdateSchema() {
         base.UpdateDatabaseAfterUpdateSchema();
-        //string name = "MyName";
-        //EntityObject1 theObject = ObjectSpace.FirstOrDefault<EntityObject1>(u => u.Name == name);
-        //if(theObject == null) {
-        //    theObject = ObjectSpace.CreateObject<EntityObject1>();
-        //    theObject.Name = name;
-        //}
+        base.UpdateDatabaseAfterUpdateSchema();
+        if (ObjectSpace.GetObjectsCount(typeof(SingletonSettings), null) == 0)
+        {
+            SingletonSettings singleton = ObjectSpace.CreateObject<SingletonSettings>();
+            singleton.FirstObject = "Customize First Object";
+        }
+        ObjectSpace.CommitChanges();
 #if !RELEASE
         ApplicationUser sampleUser = ObjectSpace.FirstOrDefault<ApplicationUser>(u => u.UserName == "User");
         if(sampleUser == null) {

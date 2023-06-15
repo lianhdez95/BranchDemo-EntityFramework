@@ -44,6 +44,7 @@ public class BranchDemoEFCoreDbContext : DbContext {
     public DbSet<ProductType> ProductTypes { get; set; }
     public DbSet<PhoneNumber> PhoneNumbers { get; set; }
     public DbSet<Address> Addresses { get; set; }
+    public DbSet<SingletonSettings>SingletonSettings { get; set; }
     public DbSet<ModelDifference> ModelDifferences { get; set; }
 	public DbSet<ModelDifferenceAspect> ModelDifferenceAspects { get; set; }
 	public DbSet<PermissionPolicyRole> Roles { get; set; }
