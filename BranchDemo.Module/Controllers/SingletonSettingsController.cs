@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using BranchDemo.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Editors;
@@ -23,9 +24,20 @@ namespace BranchDemo.Module.Controllers
         // https://docs.devexpress.com/CodeRushForRoslyn/403133/
         public SingletonSettingsController()
         {
-            InitializeComponent();
-            // Target required Windows (via the TargetXXX properties) and create their Actions.
+            this.TargetWindowType = WindowType.Main;
+            PopupWindowShowAction showSingletonAction =
+                new PopupWindowShowAction(this, "Settings", PredefinedCategory.View);
+            showSingletonAction.CustomizePopupWindowParams += showSingletonAction_CustomizePopupWindowParams;
         }
+
+        private void showSingletonAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
+        {
+            IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(SingletonSettings));
+            DetailView detailView = Application.CreateDetailView(objectSpace, objectSpace.GetObjects<SingletonSettings>()[0]);
+            detailView.ViewEditMode = ViewEditMode.Edit;
+            e.View = detailView;
+        }
+
         protected override void OnActivated()
         {
             base.OnActivated();
